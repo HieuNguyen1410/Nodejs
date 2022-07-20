@@ -1,24 +1,25 @@
 const http = require("http");
 
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 
-const routes = require("./routes");
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/',(req, res, next) => {
-  console.log('This always run!');
-  next();
+app.use('/product',(req,res) =>{
+    console.log(req.body);
+    res.redirect('/');
+})
+
+app.use("/add-product", (req, res) => {
+  res.send('<html><head></head><body><form action="/product" method="POST"><input type="text" name="title"/><button type="submit">ADD-Product</button></form></body></html>');
+
 });
 
-app.use('/add-product',(req, res) => {
-    res.send('<h1>The add product page</h1>')
-})
-
-app.use('/',(req, res) => {
-    console.log('In another the middlewave!');
-    res.send('Hello from Express.js')
-})
+app.use("/", (req, res) => {
+  res.send("Hello from Express.js");
+});
 
 const port = 3000;
 
