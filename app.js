@@ -7,7 +7,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/product',(req,res) =>{
+app.post('/product',(req,res) =>{
     console.log(req.body);
     res.redirect('/');
 })
