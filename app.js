@@ -10,14 +10,17 @@ const shopRouter = require("./routes/shop");
 
 const app = express();
 
-app.use(express.static(path.join(__dirname,'public')))
+app.set("view engine", "pug");
+app.set('views','views')
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/admin", adminData.routes);
 app.use(shopRouter);
 
 app.use((req, res) => {
-  res.status(404).sendFile(path.join(rootDir, "views", "404.html"));
+  res.status(404).render('404',{pageTitle:404})
 });
 
 const port = 3000;
