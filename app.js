@@ -6,8 +6,9 @@ const express = require("express");
 const bodyParser = require("body-parser");
 // const expressHbs = require("express-handlebars")
 
-const adminData = require("./routes/admin");
+const adminRoutes = require("./routes/admin");
 const shopRouter = require("./routes/shop");
+const errorController = require("./controller/error");
 
 const app = express();
 
@@ -22,12 +23,10 @@ app.set('views','views')
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use("/admin", adminData.routes);
+app.use("/admin", adminRoutes);
 app.use(shopRouter);
 
-app.use((req, res) => {
-  res.status(404).render('404',{pageTitle:404})
-});
+app.use(errorController.get404);
 
 const port = 3000;
 
