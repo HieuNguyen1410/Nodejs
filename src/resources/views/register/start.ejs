@@ -1,0 +1,72 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <br />
+        <form action="/register/addstartwork" method="POST">
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="name" id="name" value="<%= name%>" disabled>
+              </div>
+            </div>
+            <fieldset class="form-group">
+                <div class="row">
+                  <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="workplace" id="gridRadios1" value="Company" checked>
+                      <label class="form-check-label" for="gridRadios1">
+                        Company
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="radio" name="workplace" id="gridRadios2" value="Home">
+                      <label class="form-check-label" for="gridRadios2">
+                        Home
+                      </label>
+                    </div>
+                    <div class="form-check disabled">
+                      <input class="form-check-input" type="radio" name="workplace" id="gridRadios3" value="Customer" >
+                      <label class="form-check-label" for="gridRadios3">
+                        Customer
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+            <!-- <fieldset class="form-group">
+              <div class="row">
+                <legend class="col-form-label col-sm-2 pt-0">Workplace</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="home" id="home" value="home">
+                    <label class="form-check-label" for="gridRadios1">
+                      Home
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="company" id="company" value="company" checked>
+                    <label class="form-check-label" for="company">
+                      Company
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="customer" id="customer" value="customer" >
+                    <label class="form-check-label" for="customer">
+                      Customer
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </fieldset> -->
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+    </div>
+    <%- include('../includes/end.ejs') %>

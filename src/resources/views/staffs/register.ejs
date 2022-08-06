@@ -1,0 +1,59 @@
+<!-- HTML !-->
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/order.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <div class="container">
+            <br />
+              <div class="row">
+                <div class="col-md-4 btn-sm">
+                  <form action="/register/startwork" method="POST">
+                    <button class="btn btn-primary btn-lg btn-block btn-huge">Điểm danh</button>
+                  </form>
+                </div>
+                <div class="col-md-4 btn-sm">
+                  <form action="/register/endwork" method="POST">
+                    <button class="btn btn-warning btn-lg btn-block btn-huge">Kết thúc làm</button>
+                  </form>
+                </div>
+                <div class="col-md-4 btn-sm">
+                  <form action="/register/annualeave">
+                    <button class="btn btn-danger btn-lg btn-block btn-huge">Nghỉ phép</button>
+                  </form>
+                </div>
+              </div>
+              <hr />
+              <div>
+                <h1><%= status %></h1>
+              </div>
+              <% if (registers.length > 0) { %> 
+                <div>
+                  <p>Số giờ đã làm : <%= sumtime %></p>
+                </div>
+                <br />
+                <div>Danh sách lần điểm danh trong ngày :</div>
+                <% for (let i = 0; i < registers.length; i++) { %>
+                  <div class="row">                 
+                      <div class="col">
+                        STT : <%= i + 1 %>
+                      </div>
+                      <div class="col">
+                        Giờ bắt đầu : <%= registers[i].startwork %>
+                      </div>
+                      <div class="col">
+                        Giờ kết thúc : <%= registers[i].endwork %>
+                      </div>
+                      <div class="col">
+                        Nơi làm việc : <%= registers[i].workplace %>
+                      </div>
+                  </div>
+                  <hr>
+                <% } %>
+              <% } %>
+          </div>
+        <%- include('../includes/end.ejs') %>
+
+
+
