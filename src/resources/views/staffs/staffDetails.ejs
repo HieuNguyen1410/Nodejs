@@ -1,0 +1,26 @@
+<!-- HTML !-->
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/order.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+        <div class="container">
+            <br>
+            <div class="card-deck">
+                <% if (staffs.length > 0) { %> 
+                <% for (let staff of staffs) { %>
+                    <div class="card center">
+                    <img class="card-img-center" style="width: 10rem;" src="/<%= staff.image %>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= staff.name %></h5>
+                        <a href="/covid/covidDetails/?id=<%= staff._id %>&name=<%= staff.name %>" class="btn btn-primary">Covid</a>
+                        <a href="/admin/workcheck/?id=<%= staff._id %>" class="btn btn-warning">WorkCheck</a>
+                    </div>
+                    </div>
+              <% } %>
+              <% } %>
+            </div>
+            </div>
+        <%- include('../includes/end.ejs') %>
+

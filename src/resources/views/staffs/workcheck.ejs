@@ -7,18 +7,14 @@
         <%- include('../includes/navigation.ejs') %>
         <div class="container">
             <br>
-            <form action="/details/salaryFind" method="POST">
+            <form action="/admin/findMonth/?id=<%= staffId %>" method="POST">
             <div class="form-group row">
                 <label for="month" class="col-sm-1 col-form-label">Month</label>
                 <div class="col-sm-2">
                   <input type="Number" class="form-control" id="month" name="month" placeholder="Month" value="<%= currentMonth %>">
                 </div>
                 <div class="col-sm-3">                
-                  <button class=" btn btn-primary ">Find</button>
-                </div>
-                <div class="col-sm-6">
-                  <p><b> Id Manager : <%= adminId %></b></p>
-                  <p><b>Name Manager : <%= nameAdmin %></b></p>
+                  <button class=" btn btn-primary ">Find By Month</button>
                 </div>
               </div>
             <br>
@@ -33,6 +29,7 @@
                     <th scope="col">OverTime</th>
                     <th scope="col">AnnualLeave</th>
                     <th scope="col">AmountOfTime</th>
+                    <th scope="col">Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -47,36 +44,14 @@
                               <td><%= registers[i].overTime %></td>
                               <td><%= registers[i].annualLeave %></td>
                               <td><%= registers[i].amountOfTime %></td>
+                              <td><a href="/admin/delete/?id=<%= registers[i]._id %>&staffId=<%= registers[i].staffId %>" class="btn btn-danger <%= !edit ? 'disabled' : '' %>" >Delete</a></td>
                             </tr>
                         <% } %>
                       <% } %>
                 </tbody>
               </table>
               <hr>
-              <nav aria-label="...">
-                <ul class="pagination pagination-lg justify-content-center">
-                  <% if (currentPage !== 1 && previousPage !== 1) { %>
-                    <li><a class="page-link " href="?page=1">1</a></li>
-                  <% } %>
-                  <% if (hasPreviousPage) { %>
-                    <li> <a class="page-link " href="?pageSize=<%= pageSize %>&page=<%= previousPage %>"><%= previousPage %></a></li>
-                  <% } %>
-                  <li><a class="page-link " href="?pageSize=<%= pageSize %>&page=<%= currentPage %>" class="active"><%= currentPage %></a></li>
-                  <% if (hasNextPage) { %>
-                    <li><a class="page-link " href="?pageSize=<%= pageSize %>&page=<%= nextPage %>"><%= nextPage %></a></li>
-                  <% } %>
-                  <% if (lastPage !== currentPage && nextPage !== lastPage) { %>
-                    <li><a class="page-link " href="?pageSize=<%= pageSize %>&page=<%= lastPage %>"><%= lastPage %></a></li>
-                  <% } %>
-                </ul>    
-                <ul class="pagination pagination-sm justify-content-right">
-                  <li class="page-item">
-                    <a class="page-link" href="?pageSize=20&?page=1">20</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="?pageSize=30">30</a></li>
-                  <li class="page-item"><a class="page-link" href="?pageSize=40">40</a></li>                  
-                </ul>        
-              </nav>
+              <div><a class="btn btn-primary" href="/admin/confirm/?id=<%= staffId %>">Confirm</a></div>
         </div>
         <%- include('../includes/end.ejs') %>
 

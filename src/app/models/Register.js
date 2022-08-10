@@ -3,12 +3,13 @@ const Schema = mongoose.Schema;
 
 const RegisterSchema = new Schema(
   {
-    date: { type: Date, require: true },
-    workplace: { type: String },
-    startwork: { type: String },
-    endwork: { type: String },
-    sumwork: { type: Number },
-    annualLeave: {type:String},
+    date: { type: Object, },
+    workPlace: { type: String },
+    startWork: { type: String },
+    endWork: { type: String },
+    amountOfTime: { type: Number },
+    annualLeave: {type:Number},
+    overTime:{ type: Number},
     staffId: {
       type: Schema.Types.ObjectId,
       ref: "Staff",

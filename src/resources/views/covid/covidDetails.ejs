@@ -1,0 +1,84 @@
+<%- include('../includes/head.ejs') %>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <div class="container">
+        <br />
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Id</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <input type="text" readonly class="form-control" name="id" value="<%= staffId %>">
+                </div>
+            </div> 
+            <hr>                 
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <%= name %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Temperature</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <%= covid.temperature %> 'C
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">
+                        Injection 1
+                    </h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <%= injection1.injection1 %> --- Date: <%= injection1.date1 %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Injection 2</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <%= injection2.injection2 %> --- Date: <%= injection2.date2 %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Date</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <%= covid.date %>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <h6 class="mb-0">Infected</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                    <%= covid.infected %>
+                </div>
+            </div> 
+            <hr>                                  
+            <div class="row">
+            <div class="col-sm-12">
+                <a href="/covid/covidDetails/invoice/?id=<%= covid._id %>" class="btn btn-info ">Download </a>
+            </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../includes/end.ejs') %>
+
+
+

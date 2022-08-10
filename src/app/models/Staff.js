@@ -8,15 +8,14 @@ const staffSchema = new Schema(
     doB: { type: Date, require: true },
     salaryScale: { type: Number, require: true },
     startDate: { type: Date, require: true },
-    department: { type: String, require: true },
+    departmentId: { type: String, require: true },
     annualLeave: { type: Number, require: true },
     overTime: { type: Number },
     salary: { type: Number },
-    registerStatus: {
-      status: { type: String },
-      registerId: { type: String },
-    },
+    workingStatus: { type: Object },
+    role: { type: String },
     image: { type: String, require: true },
+    edit: { type: Boolean },
   },
   {
     timestamps: true,
@@ -29,7 +28,7 @@ staffSchema.methods.addStartWork = function (staff) {
 };
 staffSchema.methods.addEndWork = function (staff) {
   staff.registerStatus.status = "End Working";
-  staff.registerStatus.registerId = '';
+  staff.registerStatus.registerId = "";
   return staff.save();
 };
 

@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const covidSchema = new Schema(
   {
-    temperature: { type: Object },
+    temperature: { type: Number },
+    date:{ type: Date},
     vaccine: { type: Array },
     infected: { type: String },
     staffId: {
