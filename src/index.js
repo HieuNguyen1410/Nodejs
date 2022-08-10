@@ -1,5 +1,4 @@
 const express = require("express");
-const morgan = require("morgan");
 const handlebars = require("express-handlebars");
 const path = require("path");
 const pathMain = require("./util/path");
@@ -94,8 +93,6 @@ app.use((req, res, next) => {
     });
 });
 
-//HTTP log
-// app.use(morgan("combined"));
 
 //set path images
 const imagesPath = path.join(pathMain, "public", "images");
