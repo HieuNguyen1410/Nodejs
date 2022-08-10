@@ -19,7 +19,7 @@ const db = require("./config/db");
 const Staff = require("./app/models/Staff");
 
 const store = new MongoDBStore({
-  uri: "mongodb://localhost:27017/employee",
+  uri: "mongodb+srv://hieuroot:0000@cluster0.d2uhxrz.mongodb.net/employee",
   collection: "sessions",
 });
 
